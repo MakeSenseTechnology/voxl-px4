@@ -24,6 +24,12 @@
 
 # Releases
 
+## 1.14.0-2.0.70
+- Added option to skip Spektrum protocol byte validation
+- Add HDZero OSD driver
+- More voxl-esc cleanups and fixes
+- voxl2_io cleanup and fixes
+
 ## 1.14.0-2.0.69
 - Clean up voxl-esc init code so that version checks are done there and not in main loop
 
