@@ -24,6 +24,12 @@
 
 # Releases
 
+## 1.14.0-2.0.72
+- Removed set default parameters logic. Will now be done externally
+
+## 1.14.0-2.0.71
+- Added SLPI reset on px4 shutdown
+
 ## 1.14.0-2.0.70
 - Added option to skip Spektrum protocol byte validation
 - Add HDZero OSD driver
