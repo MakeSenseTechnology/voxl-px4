@@ -89,7 +89,6 @@ build/modalai_voxl2_default/bin/px4: 1 file pushed. 6.0 MB/s (18508376 bytes in 
 build/modalai_voxl2_default/bin/px4-alias.sh: 1 file pushed. 0.6 MB/s (1529 bytes in 0.002s)
 boards/modalai/voxl2/target/voxl-px4: 1 file pushed. 0.9 MB/s (1958 bytes in 0.002s)
 boards/modalai/voxl2/target/voxl-px4.config: 1 file pushed. 1.0 MB/s (3295 bytes in 0.003s)
-boards/modalai/voxl2/target/voxl-px4-set-default-parameters.config: 1 file pushed. 1.0 MB/s (4556 bytes in 0.004s)
 boards/modalai/voxl2/target/voxl-px4-fake-imu-calibration.config: 1 file pushed. 0.3 MB/s (851 bytes in 0.003s)
 ```
 
@@ -142,9 +141,6 @@ When started in this manner it is possible to interact directly with the PX4 she
 PX4 must be setup and tuned for each drone. There are a large number of parameters
 that control the operation of PX4. Default values of all parameters are built into
 the PX4 application but all non-default values are stored in the file ```/data/px4/param/parameters```.
-Unless that file exists from a previous installation it will be absent after installing
-PX4 on target. When PX4 is launched the first time it will look for the parameters file.
-If it does not exist it will create one using ```/etc/modalai/voxl-px4-set-default-parameters.config```.
 
 ### Startup script
 

@@ -141,7 +141,6 @@ if [ -f px4-firmware/build/modalai_voxl2-slpi_default/platforms/qurt/libpx4.so ]
 	# Install startup configuration files
 	sudo mkdir -p $DATA_DIR/etc/modalai/
 	sudo cp px4-firmware/boards/modalai/voxl2/target/voxl-px4-fake-imu-calibration.config $DATA_DIR/etc/modalai
-	sudo cp px4-firmware/boards/modalai/voxl2/target/voxl-px4-set-default-parameters.config $DATA_DIR/etc/modalai
 	sudo cp px4-firmware/boards/modalai/voxl2/target/voxl-px4-hitl-set-default-parameters.config $DATA_DIR/etc/modalai
 	sudo chmod +x $DATA_DIR/etc/modalai/*.config
 
