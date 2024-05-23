@@ -140,6 +140,11 @@ reset_config_file_to_default () {
     \n#     Tell PX4 where to source sensor calibration information. \
     \n#     Options include: [ACTUAL, FAKE]\
     \n#\
+    \n# ARTIFACT_MODE:\
+    \n#     Do not allow artifacts to be saved to disk. Will not start the logging \
+    \n#     module, will delete any current log files, and will delete the data manager file. \
+    \n#     Options include: [ENABLE, DISABLE]\
+    \n#\
     \n# EXTRA_STEPS:\
     \n#     Optional field that allows a user to define custom commands to be run by PX4 on boot. \
     \n#     Must be a valid bash array as seen below \
@@ -155,6 +160,7 @@ reset_config_file_to_default () {
     echo "OSD=DISABLE" >> $CONFIG_FILE
     echo "DAEMON_MODE=ENABLE" >> $CONFIG_FILE
     echo "SENSOR_CAL=ACTUAL" >> $CONFIG_FILE
+	echo "ARTIFACT_MODE=DISABLE" >> $CONFIG_FILE
     echo "EXTRA_STEPS=()" >> $CONFIG_FILE
 }
 
@@ -214,7 +220,7 @@ case ${arg} in
 		;;
 	"d0008"|"fpv_revb")
 		reset_config_file_to_default
-		set_param GPS AUTODETECT
+		set_param GPS NONE
 		set_param RC CRSF_RAW
 		set_param OSD ENABLE
 		enable_service_and_exit

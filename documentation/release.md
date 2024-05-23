@@ -24,6 +24,9 @@
 
 # Releases
 
+## 1.14.0-2.0.74
+- Added new artifact mode to the voxl2 startup scripts
+
 ## 1.14.0-2.0.73
 - Brought in update GPS drivers submodule with tx packet consolidation
 
