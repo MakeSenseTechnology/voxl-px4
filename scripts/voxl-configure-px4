@@ -55,6 +55,7 @@ print_usage () {
 	echo "voxl-configure-px4 d0010"
 	echo "voxl-configure-px4 d0011"
 	echo "voxl-configure-px4 d0013"
+	echo "voxl-configure-px4 d0015"
 	echo "voxl-configure-px4 voxl2-mini"
 	echo ""
 	echo "show this help message:"
@@ -100,6 +101,10 @@ reset_config_file_to_default () {
 	# create config description section on top of file
     echo -e "#!/bin/bash\n#\n# voxl-px4 Configuration File\
     \n#\
+    \n# AIRFRAME:\
+    \n#     Tell PX4 which AIRFRAME to use.\
+    \n#     Options include: [MULTICOPTER, FIXED_WING]\
+    \n#\
     \n# GPS:\
     \n#     Tell PX4 which GPS to use. If there is no GPS unit use NONE. Otherwise\
     \n#     choose AUTODETECT and the startup script will attempt to automatically\
@@ -121,6 +126,11 @@ reset_config_file_to_default () {
     \n#     Use EXTERNAL when not using the ModalAI APM power manager to power the board\
     \n#       This also just disables the voxlpm driver, same as the NONE option\
     \n#     Options include: [VOXLPM, EXTERNAL, NONE]\
+    \n#\
+    \n# AIRSPEED_SENSOR:\
+    \n#     Tell PX4 which airspeed sensor peripheral to use. \
+    \n#     Note: The sensor will be started on external I2C port on voxl2\
+    \n#     Options include: [NONE, MS4525DO]\
     \n#\
     \n# DISTANCE_SENSOR:\
     \n#     Tell PX4 which distance sensor peripheral to use. \
@@ -152,10 +162,12 @@ reset_config_file_to_default () {
     \n#\
     \n#" > $CONFIG_FILE
 
+    echo "AIRFRAME=MULTICOPTER" >> $CONFIG_FILE
     echo "GPS=NONE" >> $CONFIG_FILE
     echo "RC=SPEKTRUM" >> $CONFIG_FILE
     echo "ESC=VOXL_ESC" >> $CONFIG_FILE
 	echo "POWER_MANAGER=VOXLPM" >> $CONFIG_FILE
+    echo "AIRSPEED_SENSOR=NONE" >> $CONFIG_FILE
     echo "DISTANCE_SENSOR=NONE" >> $CONFIG_FILE
     echo "OSD=DISABLE" >> $CONFIG_FILE
     echo "DAEMON_MODE=ENABLE" >> $CONFIG_FILE
@@ -238,6 +250,17 @@ case ${arg} in
 		set_param GPS AUTODETECT
 		set_param RC CRSF_RAW
 		set_param POWER_MANAGER NONE
+		enable_service_and_exit
+		;;
+	"d0015")
+		## voxl2-mini setup, or voxl2 with mini esc
+		reset_config_file_to_default
+		set_param GPS AUTODETECT
+		set_param ESC VOXL2_IO_PWM_ESC
+		set_param RC CRSF_RAW
+		set_param AIRFRAME FIXED_WING
+		set_param AIRSPEED_SENSOR MS4525DO
+		set_param DISTANCE_SENSOR LIGHTWARE_SF000
 		enable_service_and_exit
 		;;
 	*)
