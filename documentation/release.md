@@ -24,6 +24,9 @@
 
 # Releases
 
+## 1.14.0-2.0.75
+- Moved to a new larger heap exposed by newer SLPI image and added some diagnostics
+
 ## 1.14.0-2.0.74
 - Added new artifact mode to the voxl2 startup scripts
 
