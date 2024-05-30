@@ -24,6 +24,9 @@
 
 # Releases
 
+## 1.14.0-2.0.76
+- Fixed a small memory leak in uORBManager.cpp
+
 ## 1.14.0-2.0.75
 - Moved to a new larger heap exposed by newer SLPI image and added some diagnostics
 
