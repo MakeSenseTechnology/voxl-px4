@@ -24,6 +24,9 @@
 
 # Releases
 
+## 1.14.0-2.0.78
+- Add VIO quality to OSD
+
 ## 1.14.0-2.0.77
 - Set the minimum scheduling interval for voxl2_io module to 5ms in order to fix rc input lag when all pwm outputs are disabled
 
