@@ -24,6 +24,9 @@
 
 # Releases
 
+## 1.14.0-2.0.79
+- Add VTX GPIO to voxl-esc
+
 ## 1.14.0-2.0.78
 - Add VIO quality to OSD
 
