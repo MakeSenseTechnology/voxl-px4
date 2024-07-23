@@ -24,6 +24,9 @@
 
 # Releases
 
+## 1.14.0-2.0.80
+- Make sure correct OSD driver is started based on platform and VTX model
+
 ## 1.14.0-2.0.79
 - Add VTX GPIO to voxl-esc
 
