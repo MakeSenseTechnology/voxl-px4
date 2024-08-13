@@ -24,6 +24,10 @@
 
 # Releases
 
+## 1.14.0-2.0.81
+- Make i2c driver mutex one per bus instead of a single static one
+- Add support for D0015 fixed wing
+
 ## 1.14.0-2.0.80
 - Make sure correct OSD driver is started based on platform and VTX model
 
