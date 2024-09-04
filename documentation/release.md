@@ -24,6 +24,9 @@
 
 # Releases
 
+## 1.14.0-2.0.82
+- Major update of HITL. Now includes way to send VIO data externally to voxl-vision-hub for VFC.
+
 ## 1.14.0-2.0.81
 - Make i2c driver mutex one per bus instead of a single static one
 - Add support for D0015 fixed wing
