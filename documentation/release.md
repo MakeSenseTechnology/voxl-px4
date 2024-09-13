@@ -24,6 +24,9 @@
 
 # Releases
 
+## 1.14.0-2.0.83
+- Added a remote OSD capability
+
 ## 1.14.0-2.0.82
 - Major update of HITL. Now includes way to send VIO data externally to voxl-vision-hub for VFC.
 
