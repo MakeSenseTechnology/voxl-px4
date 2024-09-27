@@ -24,6 +24,9 @@
 
 # Releases
 
+## 1.14.0-2.0.84
+- fix gpio not toggling if turtle mode enabled
+
 ## 1.14.0-2.0.83
 - Added a remote OSD capability
 
