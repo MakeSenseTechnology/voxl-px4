@@ -24,6 +24,9 @@
 
 # Releases
 
+## 1.14.0-2.0.85
+- Increase heartbeat rate so VFC can get faster mode updates
+
 ## 1.14.0-2.0.84
 - fix gpio not toggling if turtle mode enabled
 
