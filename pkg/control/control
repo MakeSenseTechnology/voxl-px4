@@ -1,5 +1,5 @@
 Package: voxl-px4
-Version: 1.14.0-2.0.86
+Version: 1.14.0-2.0.87
 Section: devel
 Priority: optional
 Architecture: arm64

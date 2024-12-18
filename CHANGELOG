@@ -1,3 +1,5 @@
+1.14.0-2.0.87
+    * Added capability to run the msp_dp_osd driver on DSP
 1.14.0-2.0.86
     * Add bmp280, bmp388, and ms5611 barometers to the build
     * Add temperature compensation module to the build
