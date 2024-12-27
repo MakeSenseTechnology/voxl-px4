@@ -24,6 +24,9 @@
 
 # Releases
 
+## 1.14.0-2.0.89
+- Fixed an issue with string handling in msp_dp_osd driver
+
 ## 1.14.0-2.0.88
 - Added ist8308 magnetometer start line into voxl-px4-start script
 
