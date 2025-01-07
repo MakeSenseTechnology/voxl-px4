@@ -24,6 +24,9 @@
 
 # Releases
 
+## 1.14.0-2.0.90
+- Added scripts and instructions for barometer temperature calibration
+
 ## 1.14.0-2.0.89
 - Fixed an issue with string handling in msp_dp_osd driver
 
