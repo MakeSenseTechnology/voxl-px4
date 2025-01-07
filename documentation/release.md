@@ -24,6 +24,10 @@
 
 # Releases
 
+## 1.14.0-2.0.91
+- Brought in icp201xx barometer fix from mainline
+- Changed temperature compensation module to update on 0.1 degree changes
+
 ## 1.14.0-2.0.90
 - Added scripts and instructions for barometer temperature calibration
 
