@@ -1,3 +1,7 @@
+1.14.0-2.0.92
+    * Added fixes for temperature compensation module to make sure updates go out in a timely fashion
+    * Moved start of temperature compensation module earlier in script to help prevent any uncorrected altitude data from going to EKF
+    * Made sure temperature compensation is done for tighter range on all sensors
 1.14.0-2.0.91
     * Brought in icp201xx barometer fix from mainline
     * Changed temperature compensation module to update on 0.1 degree changes
