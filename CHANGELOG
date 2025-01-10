@@ -1,3 +1,5 @@
+1.14.0-2.0.93
+    * Simplified the barometer calibration process
 1.14.0-2.0.92
     * Added fixes for temperature compensation module to make sure updates go out in a timely fashion
     * Moved start of temperature compensation module earlier in script to help prevent any uncorrected altitude data from going to EKF

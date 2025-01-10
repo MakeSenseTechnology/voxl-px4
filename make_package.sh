@@ -138,6 +138,10 @@ if [ -f px4-firmware/build/modalai_voxl2-slpi_default/platforms/qurt/libpx4.so ]
 	sudo chmod a+x $DATA_DIR/usr/bin/voxl-px4-hitl-start
 	sudo chmod a+x $DATA_DIR/usr/bin/px4-alias.sh
 
+	# Install barometer temperature calibration script
+	sudo cp px4-firmware/boards/modalai/voxl2/scripts/baro_temp_cal $DATA_DIR/usr/bin
+	sudo chmod a+x $DATA_DIR/usr/bin/baro_temp_cal
+
 	# Install startup configuration files
 	sudo mkdir -p $DATA_DIR/etc/modalai/
 	sudo cp px4-firmware/boards/modalai/voxl2/target/voxl-px4-fake-imu-calibration.config $DATA_DIR/etc/modalai
