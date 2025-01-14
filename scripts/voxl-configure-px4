@@ -210,24 +210,17 @@ case ${arg} in
 		reset_config_file_to_default
 		enable_service_and_exit
 		;;
-	"d0005_v2"|"starling_v2")
+	"crsf_gps_apm"|"d0005_v2"|"starling_v2"|"d0006_v2"|"sentinel_v2")
 		reset_config_file_to_default
 		set_param GPS AUTODETECT
 		set_param RC CRSF_RAW
 		enable_service_and_exit
 		;;
-	"d0006_v1"|"sentinel_v1")
+	"spektrum_gps_apm"|"d0006_v1"|"sentinel_v1")
 		## First revision Sentinel with Holybro GPS and Spektrum Radio
 		reset_config_file_to_default
 		set_param GPS AUTODETECT
 		set_param RC SPEKTRUM
-		enable_service_and_exit
-		;;
-	"d0006_v2"|"sentinel_v2")
-		## Second revision Sentinel with MRO GPS and ELRS radio
-		reset_config_file_to_default
-		set_param GPS AUTODETECT
-		set_param RC CRSF_RAW
 		enable_service_and_exit
 		;;
 	"d0008"|"fpv_revb")
@@ -237,23 +230,28 @@ case ${arg} in
 		set_param OSD ENABLE
 		enable_service_and_exit
 		;;
-	"d0010")
-		## Starling with no GPS
+	"crsf_nogps_apm"|"d0010")
+		## Starling 1 with no GPS
 		reset_config_file_to_default
 		set_param GPS NONE
 		set_param RC CRSF_RAW
 		enable_service_and_exit
 		;;
-	"d0011"|"d0013"|"voxl2-mini")
-		## voxl2-mini setup, or voxl2 with mini esc
+	"crsf_gps_noapm"|"d0011"|"voxl2-mini")
 		reset_config_file_to_default
 		set_param GPS AUTODETECT
 		set_param RC CRSF_RAW
 		set_param POWER_MANAGER NONE
 		enable_service_and_exit
 		;;
+	"crsf_nogps_noapm"|"d0013")
+		reset_config_file_to_default
+		set_param GPS NONE
+		set_param RC CRSF_RAW
+		set_param POWER_MANAGER NONE
+		enable_service_and_exit
+		;;
 	"d0015")
-		## voxl2-mini setup, or voxl2 with mini esc
 		reset_config_file_to_default
 		set_param GPS AUTODETECT
 		set_param ESC VOXL2_IO_PWM_ESC
