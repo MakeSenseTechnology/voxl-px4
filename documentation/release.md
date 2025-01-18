@@ -24,6 +24,9 @@
 
 # Releases
 
+## 1.14.0-2.0.94
+- FCv2: brought in ESC driver startup timing change from voxl-fpv-dev found in D0007 production setup
+
 ## 1.14.0-2.0.93
 - Simplified the barometer calibration process
 
