@@ -24,6 +24,9 @@
 
 # Releases
 
+## 1.14.0-2.0.95
+- Moved from modal_io for ESC UART passthru to Mavlink tunnel
+
 ## 1.14.0-2.0.94
 - FCv2: brought in ESC driver startup timing change from voxl-fpv-dev found in D0007 production setup
 
