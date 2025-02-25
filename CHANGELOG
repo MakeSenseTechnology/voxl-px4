@@ -1,3 +1,5 @@
+1.14.0-2.0.96
+	* Updated the baro calibration script to write parameters to PX4 by default
 1.14.0-2.0.95
 	* Moved from modal_io for ESC UART passthru to Mavlink tunnel
 1.14.0-2.0.94
