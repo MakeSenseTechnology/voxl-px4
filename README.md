@@ -37,6 +37,7 @@ The build script builds both the applications processor code and the SLPI DSP co
 In order to just build for one of these processors the appropriate helper script
 can be used instead.
 
+- ```./build-deps.sh```
 - ```./build-apps.sh```
 - ```./build-slpi.sh```
 
