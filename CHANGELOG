@@ -1,7 +1,12 @@
+1.14.0-2.0.97
+    * voxl_esc: Change uart passthru method to not require mavlink in driver
+    * voxl2_io: Added uart passthru feature
+    * Made general improvements to the QURT platform message logging so that module name is printed both in mini-dm and on apps side terminal
+    * Removed VOXL2_IO identifier in all voxl2_io log messages since module name is automatically added now
 1.14.0-2.0.96
-	* Updated the baro calibration script to write parameters to PX4 by default
+    * Updated the baro calibration script to write parameters to PX4 by default
 1.14.0-2.0.95
-	* Moved from modal_io for ESC UART passthru to Mavlink tunnel
+    * Moved from modal_io for ESC UART passthru to Mavlink tunnel
 1.14.0-2.0.94
     * FCv2: brought in ESC driver startup timing change from voxl-fpv-dev found in D0007 production setup
 1.14.0-2.0.93
