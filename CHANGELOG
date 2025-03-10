@@ -1,3 +1,5 @@
+1.14.0-2.0.98
+    * msp_dp_osd: Another string handling fix
 1.14.0-2.0.97
     * voxl_esc: Change uart passthru method to not require mavlink in driver
     * voxl2_io: Added uart passthru feature
