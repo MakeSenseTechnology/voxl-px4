@@ -1,0 +1,61 @@
+#!/usr/bin/python3
+
+import sys
+import time
+import subprocess
+from pympa import *
+
+imu_data = imu_data_t()
+imu_data.magic_number = IMU_MAGIC_NUMBER
+
+pipe_channel = pympa_create_pub('imu1', 'eric-test', 'imu_data_t')
+
+print_counter = 0
+
+while True:
+    try:
+        time.sleep(0.1)
+    except KeyboardInterrupt:
+        print("Program interrupted by user.")
+        break
+
+    if pympa_get_num_clients(pipe_channel):
+        try:
+            accel_output = subprocess.check_output(['px4-listener', 'sensor_accel']).decode().splitlines()
+            gyro_output = subprocess.check_output(['px4-listener', 'sensor_gyro']).decode().splitlines()
+        except KeyboardInterrupt:
+            print("Program interrupted by user.")
+            break
+        except:
+            print('Got exception')
+            continue
+    else:
+        print('No clients')
+        continue
+
+    if len(accel_output) > 10:
+        for i in range(3):
+            imu_data.accl_ms2[i] = float(accel_output[6 + i].split()[1])
+        imu_data.temp_c = float(accel_output[9].split()[1])
+
+    if len(gyro_output) > 10:
+        for i in range(3):
+            imu_data.gyro_rad[i] = float(gyro_output[6 + i].split()[1])
+
+    # TODO: This is not aligned with PX4 time but Linux applications don't
+    #       have direct access to PX4 time so just use a Linux time for now
+    imu_data.timestamp_ns = int(time.time() * 1000000000)
+
+    if print_counter == 5:
+        print('Accel: ' + str(imu_data.accl_ms2[0]) + ', ' + str(imu_data.accl_ms2[1]) + ', ' + str(imu_data.accl_ms2[2]))
+        print('Gyro:  ' + str(imu_data.gyro_rad[0]) + ', ' + str(imu_data.gyro_rad[1]) + ', ' + str(imu_data.gyro_rad[2]))
+        print('Temp:  ' + str(imu_data.temp_c))
+        print('Time:  ' + str(imu_data.timestamp_ns))
+        print_counter = 0
+    else:
+        print('Counter: ' + str(print_counter))
+        print_counter += 1
+
+    pympa_publish_imu(pipe_channel, imu_data)
+
+pympa_close_pub(pipe_channel)
