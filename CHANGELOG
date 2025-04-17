@@ -1,3 +1,5 @@
+1.14.0-2.0.100
+    * Zero RF yaw fix
 1.14.0-2.0.99
     * update to dds to expose battery status as ros2 endpoint from dds
 1.14.0-2.0.98
