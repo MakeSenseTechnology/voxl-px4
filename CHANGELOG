@@ -1,3 +1,7 @@
+1.14.0-2.0.102
+    * Updated the custom icm42688p IMU driver to use RTC input and to have optional temperature compensation
+1.14.0-2.0.101
+    * Updated baro_temp_cal script to make sure that there is a wide enough temperature range and low enough starting temperature
 1.14.0-2.0.100
     * Zero RF yaw fix
 1.14.0-2.0.99
