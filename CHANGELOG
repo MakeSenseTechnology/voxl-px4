@@ -1,3 +1,6 @@
+1.14.0-2.0.103
+    * Reverted the baro_temp_cal script update from 1.14.0-2.0.101
+	* Artificially set TMIN to 0 and TMAX to TMAX + 10 in barometer temperature calibration script
 1.14.0-2.0.102
     * Updated the custom icm42688p IMU driver to use RTC input and to have optional temperature compensation
 1.14.0-2.0.101
