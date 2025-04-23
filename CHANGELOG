@@ -1,3 +1,5 @@
+1.14.0-2.0.104
+    * Went back to the baro_temp_cal script from 1.14.0-2.0.101 with some minor tweaks
 1.14.0-2.0.103
     * Reverted the baro_temp_cal script update from 1.14.0-2.0.101
 	* Artificially set TMIN to 0 and TMAX to TMAX + 10 in barometer temperature calibration script
