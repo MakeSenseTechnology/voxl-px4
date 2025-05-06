@@ -1,3 +1,5 @@
+1.14.0-2.0.105
+    * Added MC autotune module to apps side build
 1.14.0-2.0.104
     * Went back to the baro_temp_cal script from 1.14.0-2.0.101 with some minor tweaks
 1.14.0-2.0.103
