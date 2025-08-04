@@ -1,3 +1,7 @@
+1.14.0-2.0.107
+    * Added estimator_aid_src_baro_hgt as a default logging topic to help debug ekf2 instability
+    * Reduced baro fusion timeout from 5 seconds to 500 ms
+    * HITL: Moved heartbeat send into actuator send thread to avoid race conditions
 1.14.0-2.0.106
     * Fixed Mavlink battery status to properly fill in voltages_ext fields
 	* Fixed CRSF telemetry
