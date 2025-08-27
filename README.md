@@ -20,7 +20,7 @@ you are on the desired branch of voxl-px4. For example, to work with the dev bra
 - ``` git clone git@gitlab.com:voxl-public/voxl-sdk/services/voxl-px4.git```
 - ```cd voxl-px4```
 - ```git checkout dev```
-- ```git submodule update --init --recursive```
+- ```git submodule update --init```
 
 ## Build instructions
 
