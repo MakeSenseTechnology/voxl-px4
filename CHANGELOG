@@ -1,3 +1,5 @@
+1.14.0-2.0.110
+    * VOXL ESC: Added a parameter controlled option to send pwm commands instead of rpm commands
 1.14.0-2.0.109
     * Added support for dps368 external barometer on apps processor
     * Added support for external ICP10100 barometer on apps processor
