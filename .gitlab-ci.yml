@@ -9,4 +9,5 @@ include:
     file: '/pipeline-configs/fc-px4.yml'
   - project: 'voxl-public/voxl-sdk/ci-tools'
     file: '/pipeline-configs/qrb5165-px4.yml'
-
+  - project: 'voxl-public/voxl-sdk/ci-tools'
+    file: '/pipeline-configs/defect_dojo.yml'
