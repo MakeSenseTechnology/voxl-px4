@@ -1,3 +1,6 @@
+1.14.0-2.0.112
+    * Added turtle mode reporting to the heartbeat mavlink message as a custom field
+    * Removed support for RB5 (M0052)
 1.14.0-2.0.111
     * Fixed compilation failure for FCv2
 1.14.0-2.0.110
