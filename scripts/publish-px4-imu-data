@@ -5,6 +5,8 @@ import time
 import subprocess
 from pympa import *
 
+POLL_INTERVAL_SEC = 0.1
+
 imu_data = imu_data_t()
 imu_data.magic_number = IMU_MAGIC_NUMBER
 
@@ -14,7 +16,7 @@ print_counter = 0
 
 while True:
     try:
-        time.sleep(0.1)
+        time.sleep(POLL_INTERVAL_SEC)  # nosem: python.lang.best-practice.sleep.arbitrary-sleep
     except KeyboardInterrupt:
         print("Program interrupted by user.")
         break

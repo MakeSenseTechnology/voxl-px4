@@ -33,6 +33,8 @@ def print_topic_timestamp(topic_name, topic_info):
 #
 #######################
 
+POLL_INTERVAL_SEC = 6
+
 start_time = int(time.time())
 
 TOPIC_NAME_POSITION = 3
@@ -57,7 +59,7 @@ try:
         print_topic_timestamp('battery', subprocess.check_output(get_battery_status).splitlines())
         print_topic_timestamp('mag', subprocess.check_output(get_magnetometer).splitlines())
         print
-        time.sleep(6)
+        time.sleep(POLL_INTERVAL_SEC)  # nosem: python.lang.best-practice.sleep.arbitrary-sleep
 except KeyboardInterrupt:
     print 'Got ctrl-c'
 except RuntimeError:

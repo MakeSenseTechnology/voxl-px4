@@ -16,6 +16,8 @@ import time
 import sys
 import os
 
+POLL_INTERVAL_SEC = 2
+
 adb_cmd = 'adb shell '
 
 def reboot_VOXL():
@@ -45,4 +47,4 @@ while True:
         sys.exit(-1)
 
     print "Pause before reboot"
-    time.sleep(2)
+    time.sleep(POLL_INTERVAL_SEC)  # nosem: python.lang.best-practice.sleep.arbitrary-sleep
