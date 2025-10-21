@@ -25,39 +25,37 @@ def reboot_VOXL():
 
 def wait_for_message(client, msg):
     print("Waiting for " + msg + "...")
-    timer = 0
-    got_message = False
-    while timer < 10:
-        m = client.recv_match(type=msg)
+    timeout = 20  # Total timeout in seconds
+    start_time = time.time()
+
+    while time.time() - start_time < timeout:
+        m = client.recv_match(type=msg, timeout=0.5, blocking=True)
         if m is not None:
             print("Got " + msg)
-            got_message = True
-            break
-        else:
-            time.sleep(2)
-        timer += 1
-    return got_message
+            return True
+
+    return False
+
 
 def dump_messages():
     #(2) Get latest log
     log_dir = "/home/linaro/log/"
 
-    dirs = os.popen(adb_cmd + ' ls -Art ' + log_dir).read()
-
-    dirs = dirs.split()
+    result = subprocess.run(['adb', 'shell', 'ls', '-Art', log_dir],
+                            capture_output=True, text=True, check=True)
+    dirs = result.stdout.split()
     dirs.sort()
     latest_dir = dirs[-1]
-    print (latest_dir)
+    print(latest_dir)
 
-    logs = os.popen(adb_cmd + ' ls -Art ' + log_dir + latest_dir).read()
-    print(logs)
-    logs = logs.split()
+    result = subprocess.run(['adb', 'shell', 'ls', '-Art', log_dir + latest_dir],
+                            capture_output=True, text=True, check=True)
+    logs = result.stdout.split()
     logs.sort()
     latest_log = logs[-1]
 
     fullpath_log = log_dir + latest_dir + "/" + latest_log #full path
     subprocess.call(["adb", "pull", fullpath_log, "."])
-
 
     #ulog_file_name = args.filename
     ulog_file_name = latest_log
@@ -104,7 +102,7 @@ while True:
     print("Got heartbeat")
 
     # Wait for other drivers and modules to startup
-    time.sleep(10)
+    time.sleep(10)  # nosemgrep: python.lang.best-practice.sleep.arbitrary-sleep
 
     # desired_msg = "ATTITUDE"
     desired_msg = "RC_CHANNELS"
@@ -112,7 +110,7 @@ while True:
     if not wait_for_message(master, desired_msg):
         print("Timeout on " + desired_msg + " message")
 
-        time.sleep(10)
+        time.sleep(10)  # nosemgrep: python.lang.best-practice.sleep.arbitrary-sleep
 
         dump_messages()
         sys.exit(-1)
