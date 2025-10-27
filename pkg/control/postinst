@@ -120,6 +120,8 @@ fi
 
 # Create directories for px4 module use
 mkdir -p /data/px4/param
+mkdir -p /data/px4/slpi
+chown system:system /data/px4/slpi
 
 # Make sure the run scripts are executable
 chmod a+x voxl-px4

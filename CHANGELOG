@@ -1,3 +1,7 @@
+1.14.0-2.0.113
+    * Implemented basic keepalive mechanism between apps and DSP
+    * Added parameters to control keepalive failure actions. Can be configured to force a blind land and to force disarm after some period.
+    * Added MPA capability
 1.14.0-2.0.112
     * Added turtle mode reporting to the heartbeat mavlink message as a custom field
     * Removed support for RB5 (M0052)
