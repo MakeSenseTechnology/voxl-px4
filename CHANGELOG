@@ -1,3 +1,5 @@
+1.14.0-2.0.114
+    * Fix FC compiler error
 1.14.0-2.0.113
     * Implemented basic keepalive mechanism between apps and DSP
     * Added parameters to control keepalive failure actions. Can be configured to force a blind land and to force disarm after some period.
