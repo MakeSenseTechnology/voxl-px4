@@ -1,3 +1,5 @@
+1.14.0-2.0.117
+    * Added a new module called sensor_baro_bridge to send sensor_baro data to an MPA pipe
 1.14.0-2.0.116
     * Add start for vehicle_air_data_bridge into start scripts
     * Use DSP clock directly on Posix for CLOCK_MONOTONIC
