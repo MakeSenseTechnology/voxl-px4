@@ -1,3 +1,5 @@
+1.14.0-2.0.118
+    * Increased battery_status logging rate from 5 Hz to 50 Hz
 1.14.0-2.0.117
     * Added a new module called sensor_baro_bridge to send sensor_baro data to an MPA pipe
 1.14.0-2.0.116
