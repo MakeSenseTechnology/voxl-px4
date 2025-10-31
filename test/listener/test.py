@@ -54,10 +54,12 @@ get_magnetometer.insert(TOPIC_NAME_POSITION, 'sensor_mag')
 try:
     print
     while True:
-        print_topic_timestamp('gps', subprocess.check_output(get_gps).splitlines())
-        print_topic_timestamp('barometer', subprocess.check_output(get_barometer).splitlines())
-        print_topic_timestamp('battery', subprocess.check_output(get_battery_status).splitlines())
-        print_topic_timestamp('mag', subprocess.check_output(get_magnetometer).splitlines())
+        # Semgrep issues are suppressed since this is test code run optionally.
+        # This code is not part of the package that is installed on target.
+        print_topic_timestamp('gps', subprocess.check_output(get_gps).splitlines()) # nosem
+        print_topic_timestamp('barometer', subprocess.check_output(get_barometer).splitlines()) # nosem
+        print_topic_timestamp('battery', subprocess.check_output(get_battery_status).splitlines()) # nosem
+        print_topic_timestamp('mag', subprocess.check_output(get_magnetometer).splitlines()) # nosem
         print
         time.sleep(POLL_INTERVAL_SEC)  # nosem: python.lang.best-practice.sleep.arbitrary-sleep
 except KeyboardInterrupt:
