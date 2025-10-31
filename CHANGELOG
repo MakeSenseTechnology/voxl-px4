@@ -1,5 +1,7 @@
+1.14.0-2.0.120
+    * Decreased voxlpm battery_status logging interval from 100ms to 20ms
 1.14.0-2.0.119
-    * Decreased voxl_esc battery_status logging rate from 100 ms to 20 ms
+    * Decreased voxl_esc battery_status logging interval from 100 ms to 20 ms
     * Changed printf to PX4_INFO in voxlpm status output
 1.14.0-2.0.118
     * Increased battery_status logging rate from 5 Hz to 50 Hz
