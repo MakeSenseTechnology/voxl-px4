@@ -1,3 +1,6 @@
+1.14.0-2.0.122
+    * Added external baro device id as an option for baro temp cal
+    * Added baro temp cal abort if data is bad (all 0s/nan)
 1.14.0-2.0.121
     * Changed hard coded battery time low failsafe from RTL to Warn
 1.14.0-2.0.120
