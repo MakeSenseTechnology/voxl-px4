@@ -113,6 +113,7 @@ ln -f -s px4 px4-dps310
 ln -f -s px4 px4-icp101xx
 ln -f -s px4 px4-vehicle_air_data_bridge
 ln -f -s px4 px4-sensor_baro_bridge
+ln -f -s px4 px4-crsf_bridge
 
 # cleanup old files
 OLD_CONF_FILE=/etc/modalai/voxl-px4.config
