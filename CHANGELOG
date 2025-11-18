@@ -1,3 +1,5 @@
+1.14.0-2.0.125
+    * CRSF raw processing improvements
 1.14.0-2.0.124
     * Fixed hover thrust estimate backup timeout so that it won't run in addition to the normal callback
 1.14.0-2.0.123
