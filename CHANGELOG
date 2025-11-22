@@ -1,3 +1,5 @@
+1.14.0-2.0.127
+    * Fixed flight core build error
 1.14.0-2.0.126
     * Added a power status message received count to the voxl_esc driver for extra debug
 1.14.0-2.0.125
