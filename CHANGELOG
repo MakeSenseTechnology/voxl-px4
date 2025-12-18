@@ -1,3 +1,5 @@
+1.14.0-2.0.130
+    * vehicle_local_position bridge: Set all unused fields to NaN
 1.14.0-2.0.129
     * crsf_bridge: fix allowing multiple simultaneous control packets in one callback
 1.14.0-2.0.128
