@@ -122,25 +122,54 @@ if [ -f "$OLD_CONF_FILE" ]; then
     rm $OLD_CONF_FILE
 fi
 
+# Figure out what platform we are running on.
+PLATFORM=`/usr/bin/voxl-platform 2> /dev/null`
+
+if [ $PLATFORM = "M0052" ]; then
+    /bin/echo "Running on M0052"
+    /bin/echo "Error M0052 is no longer supported!!!"
+    exit 1
+elif [ $PLATFORM = "M0054" ]; then
+    /bin/echo "Running on M0054"
+elif [ $PLATFORM = "M0104" ]; then
+    /bin/echo "Running on M0104"
+elif [ $PLATFORM = "M0197" ]; then
+    /bin/echo "Running on M0197"
+else
+    /bin/echo "Error, cannot determine platform! Defaulting to M0197"
+    PLATFORM = "M0197"
+fi
+
 # Create directories for px4 module use
 mkdir -p /data/px4/param
 mkdir -p /data/px4/slpi
-chown system:system /data/px4/slpi
+
+if [ "$PLATFORM" == "M0197" ]; then
+    chown fastrpc:fastrpc /data/px4/slpi
+else
+    chown system:system /data/px4/slpi
+fi
+
 
 # Make sure the run scripts are executable
 chmod a+x voxl-px4
 # chmod a+x voxl-px4-hitl
 
 # Check to see if a DSP test signature exists
+SIG_SCRIPT_DIR=/share/modalai/qrb5165-slpi-test-sig
+if [ "$PLATFORM" == "M0197" ]; then
+    SIG_SCRIPT_DIR=/share/modalai/qcs6490-slpi-test-sig
+fi
+
 if /bin/ls /usr/lib/rfsa/adsp/testsig-*.so &> /dev/null; then
     /bin/echo "Found DSP signature file"
 else
     /bin/echo "Could not find DSP signature file"
     # Look for the DSP signature generation script
-    if [ -f /share/modalai/qrb5165-slpi-test-sig/generate-test-sig.sh ]; then
+    if [ -f $SIG_SCRIPT_DIR/generate-test-sig.sh ]; then
         /bin/echo "Attempting to generate the DSP signature file"
         # Automatically generate the test signature so that px4 can run on SLPI DSP
-        /share/modalai/qrb5165-slpi-test-sig/generate-test-sig.sh
+        $SIG_SCRIPT_DIR/generate-test-sig.sh
     else
         /bin/echo "Could not find the DSP signature file generation script"
     fi
