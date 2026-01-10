@@ -1,3 +1,6 @@
+1.14.0-2.0.132
+    * Optimize commander worker thread to persist between tasks (prevent qcs6490 calibration failure)
+    * Fix memory leaks and threading bugs in QURT tasks
 1.14.0-2.0.131
     * Added support for M0197 (qcs6490)
 1.14.0-2.0.130
