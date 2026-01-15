@@ -1,3 +1,5 @@
+1.14.0-2.0.133
+    * Added support for ST IIS2MDC Magnetometer
 1.14.0-2.0.132
     * Optimize commander worker thread to persist between tasks (prevent qcs6490 calibration failure)
     * Fix memory leaks and threading bugs in QURT tasks
