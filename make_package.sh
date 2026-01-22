@@ -2,7 +2,7 @@
 ################################################################################
 # Copyright (c) 2023 ModalAI, Inc. All rights reserved.
 #
-# Semi-universal script for making a deb and ipk package. This is shared
+# Semi-universal script for making a deb package. This is shared
 # between the vast majority of VOXL-SDK packages
 #
 # Add the 'timestamp' argument to add a date-timestamp suffix to the deb package
@@ -11,7 +11,7 @@
 # author: james@modalai.com
 ################################################################################
 
-set -e # exit on error to prevent bad ipk from being generated
+set -e # exit on error to prevent bad package from being generated
 
 ################################################################################
 # Check arguments
@@ -19,21 +19,16 @@ set -e # exit on error to prevent bad ipk from being generated
 
 USETIMESTAMP=false
 MAKE_DEB=true
-MAKE_IPK=false
 
 print_usage(){
 	echo ""
-	echo " Package the current project into a deb or ipk package."
+	echo " Package the current project into a deb package."
 	echo " You must run build.sh first to build the binaries"
-	echo " if no arguments are given it builds a deb"
 	echo ""
 	echo " Usage:"
 	echo "  ./make_package.sh"
 	echo "  ./make_package.sh deb"
 	echo "        Build a DEB package"
-	echo ""
-	echo "  ./make_package.sh ipk"
-	echo "        Build an IPK package"
 	echo ""
 	echo "  ./make_package.sh timestamp"
 	echo "  ./make_package.sh deb timestamp"
@@ -63,10 +58,6 @@ process_argument () {
 		"-d"|"deb"|"debian"|"--deb"|"--debian")
 			MAKE_DEB=true
 			;;
-		"-i"|"ipk"|"opkg"|"--ipk"|"--opkg")
-			MAKE_IPK=true
-			MAKE_DEB=false
-			;;
 		*)
 			echo "invalid option"
 			print_usage
@@ -87,12 +78,9 @@ done
 ################################################################################
 VERSION=$(cat pkg/control/control | grep "Version" | cut -d' ' -f 2)
 PACKAGE=$(cat pkg/control/control | grep "Package" | cut -d' ' -f 2)
-IPK_NAME=${PACKAGE}_${VERSION}.ipk
-
 
 DATA_DIR=pkg/data
 CONTROL_DIR=pkg/control
-IPK_DIR=pkg/IPK
 DEB_DIR=pkg/DEB
 
 echo "Package Name: " $PACKAGE
@@ -105,12 +93,10 @@ echo "version Number: " $VERSION
 sudo rm -rf $DATA_DIR
 mkdir $DATA_DIR
 
-# remove ipk and deb packaging folders
-rm -rf $IPK_DIR
+# remove deb packaging folder
 rm -rf $DEB_DIR
 
-# remove old ipk and deb packages
-rm -f *.ipk
+# remove old deb packages
 rm -f *.deb
 
 ################################################################################
@@ -192,44 +178,13 @@ if [ -d "bash_profile" ]; then
 fi
 
 ################################################################################
-# make an IPK
-################################################################################
-
-if $MAKE_IPK; then
-	echo "starting building IPK package"
-
-	## make a folder dedicated to IPK building and make the required version file
-	mkdir $IPK_DIR
-	echo "2.0" > $IPK_DIR/debian-binary
-
-	## add tar archives of data and control for the IPK package
-	cd $CONTROL_DIR/
-	tar --create --gzip -f ../../$IPK_DIR/control.tar.gz *
-	cd ../../
-	cd $DATA_DIR/
-	tar --create --gzip -f ../../$IPK_DIR/data.tar.gz *
-	cd ../../
-
-	## update version with timestamp if enabled
-	if $USETIMESTAMP; then
-		dts=$(date +"%Y%m%d%H%M")
-		VERSION="${VERSION}_${dts}"
-		IPK_NAME=${PACKAGE}_${VERSION}.ipk
-		echo "new version with timestamp: $VERSION"
-	fi
-
-	## use ar to make the final .ipk and place it in the repository root
-	ar -r $IPK_NAME $IPK_DIR/control.tar.gz $IPK_DIR/data.tar.gz $IPK_DIR/debian-binary
-fi
-
-################################################################################
 # make a DEB package
 ################################################################################
 
 if $MAKE_DEB; then
 	echo "starting building Debian Package"
 
-	## make a folder dedicated to IPK building and copy the requires debian-binary file in
+	## make a folder dedicated to DEB building
 	mkdir $DEB_DIR
 
 	## copy the control stuff in
