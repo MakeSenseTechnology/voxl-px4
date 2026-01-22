@@ -3,7 +3,7 @@
 High level PX4 wrapper project for CI and configuration with VOXL2 PX4 firmware as a
 git submodule
 
-## Prerequisites
+## Build Environment
 
 This build requires the rb5-flight-px4-build-docker docker image. The docker image
 contains the Hexagon SDK needed to build the SLPI DSP portion of the code base and
@@ -12,7 +12,7 @@ Hexagon SDK software license does not allow redistribution of any kind so it has
 to be downloaded by each user individually and then built into a Docker. The instructions
 for this process are in the following link: https://gitlab.com/voxl-public/rb5-flight/rb5-flight-px4-build-docker
 
-## Getting started
+## Build dependencies
 
 This project contains the VOXL2 px4-firmware as a submodule, which itself contains nested submodules. After cloning this project, all of these submodules need to be initialized. But before doing this make sure that
 you are on the desired branch of voxl-px4. For example, to work with the dev branch use:
@@ -51,7 +51,7 @@ Simply run the packaging script, but not in the Docker.
 
 This will produce a Debian package in the top level directory.
 
-## Deployment
+## Deploy to VOXL
 
 There are a couple of different ways to deploy the code. Usually the Debian package
 is installed on target. 
