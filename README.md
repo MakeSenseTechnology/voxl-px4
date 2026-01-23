@@ -17,7 +17,7 @@ for this process are in the following link: https://gitlab.com/voxl-public/rb5-f
 This project contains the VOXL2 px4-firmware as a submodule, which itself contains nested submodules. After cloning this project, all of these submodules need to be initialized. But before doing this make sure that
 you are on the desired branch of voxl-px4. For example, to work with the dev branch use:
 
-- ``` git clone git@gitlab.com:voxl-public/voxl-sdk/services/voxl-px4.git```
+- ```git clone git@gitlab.com:voxl-public/voxl-sdk/services/voxl-px4.git```
 - ```cd voxl-px4```
 - ```git checkout dev```
 - ```git submodule update --init```
