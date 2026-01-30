@@ -1,3 +1,5 @@
+1.14.0-2.0.134
+    * Always start rc_update module. If RC is EXTERNAL and Mavlink MANUAL_CONTROL messages are coming in then the module won't do anything.
 1.14.0-2.0.133
     * Added support for ST IIS2MDC Magnetometer
 1.14.0-2.0.132
