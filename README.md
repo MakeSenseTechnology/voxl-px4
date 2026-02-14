@@ -14,8 +14,8 @@ for this process are in the following link: https://gitlab.com/voxl-public/rb5-f
 
 ## Build dependencies
 
-This project contains the VOXL2 px4-firmware as a submodule, which itself contains nested submodules. After cloning this project, all of these submodules need to be initialized. But before doing this make sure that
-you are on the desired branch of voxl-px4. For example, to work with the dev branch use:
+This project contains the VOXL2 px4-firmware as a submodule, which itself contains nested submodules.
+Make sure you are on the desired branch of voxl-px4. For example, to work with the dev branch use:
 
 - ```git clone git@gitlab.com:voxl-public/voxl-sdk/services/voxl-px4.git```
 - ```cd voxl-px4```
@@ -37,7 +37,6 @@ The build script builds both the applications processor code and the SLPI DSP co
 In order to just build for one of these processors the appropriate helper script
 can be used instead.
 
-- ```./build-deps.sh```
 - ```./build-apps.sh```
 - ```./build-slpi.sh```
 
@@ -100,28 +99,9 @@ a few considerations to be taken care of.
 
 ### Starting point
 
-It's best to start with the latest VOXL2 platform release. This will include
-all of the required software to use VOXL2 PX4 most effectively. These platform
+It's best to start with the latest VOXL2 SDK. This will include
+all of the required software to use VOXL2 PX4 most effectively. These SDK
 releases can be downloaded from the ModalAI developer website at https://developer.modalai.com
-
-### SLPI DSP image
-
-It's required to have at least version ```1.1.4``` of the SLPI DSP image running to support
-PX4. When the platform release is installed it will place the SLPI DSP image version
-in the file ```/dsp/sdsp/modalai_slpi_version.txt```. If a newer version of the SLPI DSP image
-is subsequently installed via Debian package that file will be deleted and the proper
-way to check for the version is to use ```apt```.
-
-```
-root@m0054:/# apt list | grep modalai-slpi
-
-WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
-
-modalai-slpi/now 1.1-4 arm64 [installed,local]
-```
-
-Important note: It is required to power cycle VOXL2 after updating the SLPI DSP image
-as it gets loaded during initial system boot up.
 
 ### Starting PX4
 
@@ -131,11 +111,11 @@ This file can be modified to change the startup behavior of PX4.
 
 The convenience script ```/usr/bin/voxl-px4``` is used to start PX4. There are a few
 command line options that can be used to customize the launching of PX4. When launched
-using systemd PX4 needs to be started as a daemon to run in the background. This is
-done with the ```-d``` option of ```voxl-px4```.
+using systemd PX4 needs to be started as a daemon to run in the background.
 
-PX4 can also be started directly from the command line with ```/usr/bin/voxl-px4```.
-When started in this manner it is possible to interact directly with the PX4 shell.
+PX4 can also be started directly from the command line with ```/usr/bin/voxl-px4 -d```.
+When started in this manner it is possible to interact directly with the PX4 shell. The `-d`
+option specifies not to start in daemon mode.
 
 ### PX4 Parameters
 
@@ -146,9 +126,9 @@ the PX4 application but all non-default values are stored in the file ```/data/p
 ### Startup script
 
 The ```/usr/bin/voxl-px4``` script utilizes ```/etc/modalal/voxl-px4.config``` for
-the startup process. This file contains the start commands for all desired PX4
-drivers and modules. Just like ```/usr/bin/voxl-px4``` it is a shell script and
-can be modified using standard bash script syntax.
+some high level configuration options and then uses ```/usr/bin/voxl-px4-start``` to complete the startup.
+This file contains the start commands for all desired PX4 drivers and modules. Just like
+```/usr/bin/voxl-px4``` it is a shell script and can be modified using standard bash script syntax.
 
 ### Checking PX4 version
 

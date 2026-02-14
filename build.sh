@@ -6,30 +6,18 @@ source /home/build-env.sh
 
 APPS_BUILD="ON"
 SLPI_BUILD="ON"
-DEPS_BUILD="ON"
 
-while getopts "asd" flag
+while getopts "as" flag
 do
     case "${flag}" in
         # Use -a to force apps only build
-        a) SLPI_BUILD="OFF"
-           DEPS_BUILD="OFF";;
+        a) SLPI_BUILD="OFF";;
         # Use -s to force SLPI only build
-        s) APPS_BUILD="OFF"
-           DEPS_BUILD="OFF";;
-        # Use -d to force dependency only build
-        d) APPS_BUILD="OFF"
-           SLPI_BUILD="OFF";;
+        s) APPS_BUILD="OFF";;
     esac
 done
 
 cd px4-firmware
-
-if [ "$DEPS_BUILD" == "ON" ]; then
-    echo "*** Starting dependencies build ***"
-    ./boards/modalai/voxl2/scripts/build-deps.sh
-    echo "*** End of dependencies build ***"
-fi
 
 if [ "$APPS_BUILD" == "ON" ]; then
     echo "*** Starting apps processor build ***"
