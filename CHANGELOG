@@ -1,3 +1,6 @@
+1.14.0-2.0.136
+    * Added i2c uninitialize on probe failure to free up port
+    * Added ina226 and ina228 device drivers
 1.14.0-2.0.135
     * Added i2cdetect system command to slpi build
     * Add proper support for SDLOG_MODE parameter
