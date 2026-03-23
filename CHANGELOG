@@ -1,3 +1,7 @@
+1.14.0-2.0.138
+    * Added Teseo GPS driver support with BMM150-based auto-detection
+    * Added DSP DPS368 barometer detection to start script
+    * Added bmm150 magnetometer driver to build and start script
 1.14.0-2.0.137
     * Added option to start ina226 or ina228 power monitor drivers
     * Updated package dependencies for DSP images
