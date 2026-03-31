@@ -1,3 +1,5 @@
+1.14.0-2.0.139
+    * Add sensor_imu_raw_bridge for IMU temperature calibration
 1.14.0-2.0.138
     * Added Teseo GPS driver support with BMM150-based auto-detection
     * Added DSP DPS368 barometer detection to start script
