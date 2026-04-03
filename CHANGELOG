@@ -1,3 +1,5 @@
+1.14.0-2.0.141
+    * Added the teseo GPS start logic to the M0197 platform
 1.14.0-2.0.140
     * Teseo LIV3 driver: Update GAL PRN and BDS ranges
     * Added SIH simulator
