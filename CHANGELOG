@@ -1,3 +1,5 @@
+1.14.0-2.0.143
+    * Fix fence points QGC upload
 1.14.0-2.0.142
     * Add code to detect ModalAI ELRS reboots
 1.14.0-2.0.141
