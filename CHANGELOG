@@ -1,3 +1,5 @@
+1.14.0-2.0.146
+    * Fix Hexagon compiler NaN comparison issues in math library
 1.14.0-2.0.145
     * Remove attempt to find DPS baro on bus 1 from DSP
 1.14.0-2.0.144
