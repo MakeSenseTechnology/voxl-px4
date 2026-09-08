@@ -1,3 +1,6 @@
+1.18.0-1.0.3
+    * Switched from ModalAI voxl-dev to upstream PX4 release/1.18 at commit 75395e11aa33f3cfa9496deeef314f4711368829
+    * Raised minimum DSP package versions to modalai-slpi 1.2.3 or modalai-adsp 1.0.8
 1.14.0-2.0.146
     * Fix Hexagon compiler NaN comparison issues in math library
 1.14.0-2.0.145

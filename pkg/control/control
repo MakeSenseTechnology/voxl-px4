@@ -1,5 +1,5 @@
 Package: voxl-px4
-Version: 1.14.0-2.0.146
+Version: 1.18.0-1.0.3
 Section: devel
 Priority: optional
 Architecture: arm64
@@ -7,7 +7,7 @@ Depends: voxl-reset-slpi(>=0.0.3),
  libfc-sensor (>=1.0.10),
  voxl-px4-params (>=0.3.10),
  voxl3-system-image(>=0.0.2) | voxl2-system-image(>=1.5.4) | rb5-system-image(>=1.6.2),
- modalai-slpi(>=1.2.2) | modalai-adsp(>=1.0.5)
+ modalai-slpi(>=1.2.3) | modalai-adsp(>=1.0.8)
 Replaces: px4-rb5-flight
 Conflicts: px4-rb5-flight
 Maintainer: Eric Katzfey <eric.katzfey@modalai.com>
