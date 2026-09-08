@@ -103,12 +103,12 @@ rm -f *.deb
 ## install compiled stuff into data directory
 ################################################################################
 
-if [ -f px4-firmware/build/modalai_voxl2-slpi_default/platforms/qurt/libpx4.so ] && \
+if [ -f px4-firmware/build/modalai_voxl2_slpi/platforms/qurt/libpx4.so ] && \
    [ -f px4-firmware/build/modalai_voxl2_default/bin/px4 ] && \
    [ -f px4-firmware/build/modalai_voxl2_default/bin/px4-alias.sh ]; then
 	# Copy the SLPI DSP PX4 library
 	sudo mkdir -p $DATA_DIR/usr/lib/rfsa/adsp
-	sudo cp px4-firmware/build/modalai_voxl2-slpi_default/platforms/qurt/libpx4.so $DATA_DIR/usr/lib/rfsa/adsp
+	sudo cp px4-firmware/build/modalai_voxl2_slpi/platforms/qurt/libpx4.so $DATA_DIR/usr/lib/rfsa/adsp
 
 	# Install apps proc PX4 executables
 	sudo mkdir -p $DATA_DIR/usr/bin
@@ -126,10 +126,6 @@ if [ -f px4-firmware/build/modalai_voxl2-slpi_default/platforms/qurt/libpx4.so ]
 	sudo chmod a+x $DATA_DIR/usr/bin/voxl-px4-hitl-start
 	sudo chmod a+x $DATA_DIR/usr/bin/voxl-px4-sih-start
 	sudo chmod a+x $DATA_DIR/usr/bin/px4-alias.sh
-
-	# Install barometer temperature calibration script
-	sudo cp px4-firmware/boards/modalai/voxl2/scripts/baro_temp_cal $DATA_DIR/usr/bin
-	sudo chmod a+x $DATA_DIR/usr/bin/baro_temp_cal
 
 	# Install startup configuration files
 	sudo mkdir -p $DATA_DIR/etc/modalai/
