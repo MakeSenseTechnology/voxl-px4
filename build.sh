@@ -4,6 +4,8 @@ echo "*** Starting build ***"
 
 source /home/build-env.sh
 
+export PATH="/home/4.1.0.4/tools/linaro64/bin:$PATH"
+
 APPS_BUILD="ON"
 SLPI_BUILD="ON"
 
@@ -28,8 +30,7 @@ fi
 
 if [ "$SLPI_BUILD" == "ON" ]; then
     echo "*** Starting qurt slpi build ***"
-    make modalai_voxl2-slpi
-    cat build/modalai_voxl2-slpi_default/src/lib/version/build_git_version.h
+    # make modalai_voxl2-slpi
     echo "*** End of qurt slpi build ***"
 fi
 
