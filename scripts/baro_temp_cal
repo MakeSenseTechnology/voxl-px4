@@ -372,7 +372,8 @@ if __name__ == '__main__':
                 print('param set TC_B0_X%d    %.5f' % (i,0.0))
 
             # Backup the parameters
-            cal_param_file_name = '/data/px4/param/parameters_baro_tc.cal'
+            cal_param_file_name = '/data/modalai/px4/parameters_baro_tc.cal'
+            os.makedirs(os.path.dirname(cal_param_file_name), exist_ok=True)
             if os.path.exists(cal_param_file_name):
                 print(f'Parameter file {cal_param_file_name} already exists, overwriting with new data')
             cal_file = open(cal_param_file_name, 'w')
