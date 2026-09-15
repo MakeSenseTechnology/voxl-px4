@@ -41,6 +41,7 @@ else
 fi
 
 # Create directories for px4 module use
+mkdir -p /data/modalai/px4
 mkdir -p /data/px4/param
 mkdir -p /data/px4/slpi
 
