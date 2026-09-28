@@ -1,3 +1,5 @@
+1.18.0-1.0.6
+    * Fix to prevent qcs6490 system from deleting px4 lock files
 1.18.0-1.0.5
     * Changed where sensor and thermal calibration files are stored to /data/modalai/px4
 1.18.0-1.0.4
