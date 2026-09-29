@@ -1,3 +1,5 @@
+1.18.0-1.0.7
+    * Removed obsolete QURT definition that was preventing logging of GPS time
 1.18.0-1.0.6
     * Fix to prevent qcs6490 system from deleting px4 lock files
 1.18.0-1.0.5
