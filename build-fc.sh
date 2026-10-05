@@ -44,10 +44,10 @@ cd -
 # Fix permissions of PX4 firmware .git entities
 USER=$(stat -c '%u' .git/modules/px4-firmware)
 echo "User ID is $USER"
-chown -R $USER .git/modules/px4-firmware
+#chown -R $USER .git/modules/px4-firmware
 
 GROUP=$(stat -c '%g' .git/modules/px4-firmware)
 echo "Group ID is $GROUP"
-chgrp -R $GROUP .git/modules/px4-firmware
+#chgrp -R $GROUP .git/modules/px4-firmware
 
 echo "*** End of flight core build ***"
