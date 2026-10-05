@@ -1,3 +1,5 @@
+1.18.0-1.0.9
+    * Wrap Linux settime to prevent GPS from setting the Linux realtime clock and affecting other services
 1.18.0-1.0.8
     * Honor loopback interface when binding UDP sockets in Mavlink
 1.18.0-1.0.7
