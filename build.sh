@@ -30,7 +30,7 @@ fi
 
 if [ "$SLPI_BUILD" == "ON" ]; then
     echo "*** Starting qurt slpi build ***"
-    # make modalai_voxl2-slpi
+    make modalai_voxl2_slpi
     echo "*** End of qurt slpi build ***"
 fi
 
@@ -39,10 +39,10 @@ cd -
 # Fix permissions of PX4 firmware .git entities
 USER=$(stat -c '%u' .git/modules/px4-firmware)
 echo "User ID is $USER"
-chown -R $USER .git/modules/px4-firmware
+#chown -R $USER .git/modules/px4-firmware
 
 GROUP=$(stat -c '%g' .git/modules/px4-firmware)
 echo "Group ID is $GROUP"
-chgrp -R $GROUP .git/modules/px4-firmware
+#chgrp -R $GROUP .git/modules/px4-firmware
 
 echo "*** End of build ***"
