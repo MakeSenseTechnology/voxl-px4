@@ -155,6 +155,12 @@ reset_config_file_to_default () {
     \n#     module, will delete any current log files, and will delete the data manager file. \
     \n#     Options include: [ENABLE, DISABLE]\
     \n#\
+    \n# POWER_MONITOR_ONLY:\
+    \n#     Run PX4 only as a battery monitor for a system with its own flight controller. \
+    \n#     Starts just the POWER_MANAGER driver and the onboard mavlink link; no sensors, \
+    \n#     estimator, commander or flight control modules are started. \
+    \n#     Options include: [ENABLE, DISABLE]\
+    \n#\
     \n# EXTRA_STEPS:\
     \n#     Optional field that allows a user to define custom commands to be run by PX4 on boot. \
     \n#     Must be a valid bash array as seen below \
@@ -173,6 +179,7 @@ reset_config_file_to_default () {
     echo "DAEMON_MODE=ENABLE" >> $CONFIG_FILE
     echo "SENSOR_CAL=ACTUAL" >> $CONFIG_FILE
 	echo "ARTIFACT_MODE=DISABLE" >> $CONFIG_FILE
+    echo "POWER_MONITOR_ONLY=DISABLE" >> $CONFIG_FILE
     echo "EXTRA_STEPS=()" >> $CONFIG_FILE
 }
 
