@@ -56,14 +56,14 @@ There are a couple of different ways to deploy the code. Usually the Debian pack
 is installed on target. 
 
 ```
-~/development/modalai/voxl-px4$ adb push voxl-px4_2.0.0_arm64.deb /home/root
+~/development/modalai/voxl-px4$ adb push voxl-px4_1.18.0-1.0.9_arm64.deb /home/root
 ~/development/modalai/voxl-px4$ adb shell
 root@m0054:/# cd /home/root
-root@m0054:/home/root# dpkg -i voxl-px4_2.0.0_arm64.deb 
+root@m0054:/home/root# dpkg -i voxl-px4_1.18.0-1.0.9_arm64.deb 
 (Reading database ... 79293 files and directories currently installed.)
-Preparing to unpack voxl-px4_2.0.0_arm64.deb ...
-Unpacking voxl-px4 (2.0.0) over (2.0.0) ...
-Setting up voxl-px4 (2.0.0) ...
+Preparing to unpack voxl-px4_1.18.0-1.0.9_arm64.deb ...
+Unpacking voxl-px4 (1.18.0) over (1.18.0) ...
+Setting up voxl-px4 (1.18.0) ...
 Created symlink /etc/systemd/system/multi-user.target.wants/voxl-px4.service → /etc/systemd/system/voxl-px4.service.
 Found DSP signature file
 ```
