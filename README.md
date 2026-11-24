@@ -12,6 +12,8 @@ Hexagon SDK software license does not allow redistribution of any kind so it has
 to be downloaded by each user individually and then built into a Docker. The instructions
 for this process are in the following link: https://gitlab.com/voxl-public/rb5-flight/rb5-flight-px4-build-docker
 
+You can also follow `docs/PX4_Build_Image(RB5-flight-px4).md` for a macos setup.
+
 ## Build dependencies
 
 This project contains the VOXL2 px4-firmware as a submodule, which itself contains nested submodules.
